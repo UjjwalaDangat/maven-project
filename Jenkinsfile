@@ -12,14 +12,14 @@ stages
   stage('compile source code')
 { 
     steps {
-             withMaven(jdk: 'localjdk-8', maven: 'localmaven') {
+             withMaven(jdk: 'localjdk', maven: 'localmaven') {
              sh 'mvn compile'
           }
        }
    }
    stage ('test') {
        steps {
-           withMaven(jdk: 'localjdk-8', maven: 'localmaven') {
+           withMaven(jdk: 'localjdk', maven: 'localmaven') {
            sh 'mvn test'
 }
        }
@@ -27,7 +27,7 @@ stages
     stage ('build my job')
     {
         steps {
-            withMaven(jdk: 'localjdk-8', maven: 'localmaven') {
+            withMaven(jdk: 'localjdk', maven: 'localmaven') {
                 sh 'mvn package'
             }
         }
